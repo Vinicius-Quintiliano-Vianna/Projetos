@@ -1,0 +1,53 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --bg: #0b0b0d;
+  --text: #e7e7e7;
+  --accent: #4ea3ff;
+  --container-width: 1000px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+
+/* Layout container */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header / nav */
+.site-header { background: var(--bg); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #ddd; }
+.nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.5rem 1rem; }
+.brand { font-weight:700; text-decoration:none; color:var(--text); }
+.menu { list-style:none; display:flex; gap:1rem; align-items:center; }
+.menu a, .menu button { text-decoration:none; background:none; border:none; cursor:pointer; color:var(--text); font: inherit; }
+
+/* menu toggle */
+.menu-toggle { display:none; }
+
+/* Conteúdo principal */
+main { padding-block:2rem; }
+.foto-perfil { max-width:180px; border-radius:8px; margin-top:1rem; }
+
+/* Footer */
+.site-footer { padding:1rem; border-top:1px solid #ddd; text-align:center; margin-top:2rem; }
+
+/* Formulário */
+form { display:flex; flex-direction:column; gap:0.5rem; max-width:600px; }
+input, textarea { padding:0.6rem; border:1px solid #ccc; border-radius:8px 0; font:inherit; }
+button[type="submit"] { padding:0.6rem 1rem; border-radius:8px 0; border:none; background:var(--accent); color:#fff; cursor:pointer; }
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .menu { position: absolute; right: 1rem; top: 60px; background:var(--bg); flex-direction:column; padding:0.5rem; display:none; border-radius:6px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+  .menu[aria-expanded="true"] { display:flex; }
+  .menu-toggle { display:inline-block; }
+}
